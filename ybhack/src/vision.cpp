@@ -6,13 +6,20 @@
 #include <opencv2/highgui/highgui.hpp>
 #include "ybhack/ImageGrabber.h"
 #include "ybhack/TestFilter.h"
+#include "ybhack/RedObjectFilter.h"
+#include "ybhack/GreenObjectFilter.h"
+#include "ybhack/BlueObjectFilter.h"
 
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "image_converter");
-  aanpr::TestFilter tf;
+  aanpr::RedObjectFilter rf;
+  aanpr::GreenObjectFilter gf;
+  aanpr::BlueObjectFilter bf;
   aanpr::ImageGrabber ic;
-  ic.addFilter( &tf );
+  ic.addFilter( &rf );
+  ic.addFilter( &gf );
+  ic.addFilter( &bf );
   ros::spin();
   return 0;
 }
