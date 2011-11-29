@@ -13,13 +13,8 @@
 int main(int argc, char** argv)
 {
   ros::init(argc, argv, "image_converter");
-  aanpr::RedObjectFilter rf;
-  aanpr::GreenObjectFilter gf;
-  aanpr::BlueObjectFilter bf;
+
   aanpr::ImageGrabber ic;
-  ic.addFilter( &rf );
-  ic.addFilter( &gf );
-  ic.addFilter( &bf );
   ros::spin();
   return 0;
 }

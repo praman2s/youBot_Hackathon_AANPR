@@ -13,6 +13,7 @@
 #include <opencv2/imgproc/imgproc_c.h>
 #include <opencv2/highgui/highgui_c.h>
 #include <cvblob.h>
+#include "ybhack/ImageFilter.h"
 
 #ifndef ___RED_OBJECT_FILTER_H_
 #define ___RED_OBJECT_FILTER_H_
