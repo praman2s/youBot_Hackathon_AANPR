@@ -40,3 +40,12 @@ Thumbs.db
 *.DS_Store
 *.swp
 *.out
+
+.cproject
+.project
+.pydevproject
+bin*
+build*
+cmake_install.cmake
+CMakeCache.txt
+CMakeFiles*

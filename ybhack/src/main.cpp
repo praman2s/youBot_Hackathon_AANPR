@@ -1,4 +1,9 @@
+#include <stdio.h>
 
-int main(int argc,char** argv)
-{
+int hello(){
+}
+
+int main(int argc,char** argv){
+	hello();
+	hello();
 }
