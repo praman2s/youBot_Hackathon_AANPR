@@ -76,6 +76,23 @@ void VisionController::OnImageGrabbed( ImageGrabber* grabber, cv::Mat& image ){
 		,layerColors[2].c_str(),layerPosition[2]
 	);
 
+	for( int i =0; i< numGreen -1; i++){
+		double x1 = cdGreen.objectList[i]->centerX;
+		double x2 = cdGreen.objectList[i+1]->centerX;
+		double x = (x1+x2)/2;
+
+		double y1 = cdGreen.objectList[i]->centerY;
+		double y2 = cdGreen.objectList[i+1]->centerY;
+		double y = (y1+y2)/2;
+
+		double height = cdGreen.objectList[i]->maxY - cdGreen.objectList[i]->minY;
+		double width = cdGreen.objectList[i]->maxX - cdGreen.objectList[i]->minX;
+
+		cv::rectangle( image, cv::Rect( x - width/2, y - 1.5*height, width, height), cv::Scalar(255,0,0,0), 2);
+
+	}
+
+
 	winCV->update( image );
 }
 
