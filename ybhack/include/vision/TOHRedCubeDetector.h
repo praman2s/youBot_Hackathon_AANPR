@@ -8,12 +8,11 @@
 #include <sensor_msgs/image_encodings.h>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include "ybhack/ImageGrabber.h"
 
 #include <opencv2/imgproc/imgproc_c.h>
 #include <opencv2/highgui/highgui_c.h>
 #include <cvblob.h>
-#include "ybhack/ImageFilter.h"
+#include "vision/TOHObjectDetector.h"
 
 #ifndef ___RED_OBJECT_FILTER_H_
 #define ___RED_OBJECT_FILTER_H_
@@ -24,13 +23,12 @@
 using namespace cvb;
 
 namespace aanpr{
-class RedObjectFilter : public ImageFilter{
+class TOHRedCubeDetector : public TOHObjectDetector{
 public:
-	virtual unsigned char updatePixel( double r, double g, double b){
-			return 255*((r>0.2+g)&&(r>0.2+b));
-	}
-	virtual  ~RedObjectFilter(){
-		std::cout << "Test filter destructed \n";
+	virtual unsigned char updatePixel( double r, double g, double b);
+	virtual  ~TOHRedCubeDetector();
+	virtual string getColor(){
+		return "red";
 	}
 };
 }

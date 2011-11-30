@@ -29,7 +29,19 @@ link_directories(/usr/local/lib)
 #target_link_libraries(${PROJECT_NAME} another_library)
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
-rosbuild_add_executable(hackathon src/main.cpp src/wslaserfinder.cpp)
-rosbuild_add_executable(vision src/vision.cpp)
+#rosbuild_add_executable(hackathon src/main.cpp src/wslaserfinder.cpp)
+
+rosbuild_add_executable(vision src/vision/vision.cpp
+							src/vision/ObjectDetector.cpp
+							src/vision/TOHObjectDetector.cpp
+							src/vision/TOHBlueCubeDetector.cpp
+							src/vision/TOHGreenCubeDetector.cpp
+							src/vision/TOHRedCubeDetector.cpp
+							src/vision/ImageGrabber.cpp
+							src/vision/CVWindow.cpp
+							src/vision/Object2D.cpp
+							src/vision/TOHCube.cpp
+							src/vision/VisionController.cpp
+							)
 
 target_link_libraries(vision cvblob)
