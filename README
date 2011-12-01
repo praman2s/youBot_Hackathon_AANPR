@@ -1,3 +1,16 @@
 Required Libraries: 
+=====================
 1. Download and install cvblob from here: http://code.google.com/p/cvblob/
 For installation instruction, read the README file in cvblob.
+
+
+How to run rviz and gazebo:
+============================
+ roslaunch youbot_description youbot_description.launch 
+ roslaunch youbot_description youbot_publisher.launch (starts gazebo)
+
+ roslaunch youbot_navigation_local move_base_local.launch (start navigation)
+
+ rosrun rviz rviz
+
+
