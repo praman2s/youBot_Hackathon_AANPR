@@ -18,6 +18,14 @@
   <depend package="std_msgs"/>
   <depend package="cv_bridge" />
   <depend package="image_transport" />
+   <depend package="actionlib"/>
+  <depend package="actionlib_msgs"/>
+  <depend package="move_base_msgs"/>
+  <depend package="brics_actuator"/>
+  <depend package="sensor_msgs"/>
+  <depend package="tf"/>
+  <depend package="kinematics_msgs"/>
+  <depend package="control_msgs"/>
   
   <export>
     <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -lros"/>

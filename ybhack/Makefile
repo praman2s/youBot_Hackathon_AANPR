@@ -35,19 +35,22 @@ CMAKE_COMMAND = /usr/bin/cmake
 # The command to remove a file.
 RM = /usr/bin/cmake -E remove -f
 
+# The program to use to edit the cache.
+CMAKE_EDIT_COMMAND = /usr/bin/ccmake
+
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aman/youbot-hackathon/youBot_Hackathon_AANPR/ybhack
+CMAKE_SOURCE_DIR = /home/raman/youBot_Hackathon_AANPR/ybhack
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/aman/youbot-hackathon/youBot_Hackathon_AANPR/ybhack
+CMAKE_BINARY_DIR = /home/raman/youBot_Hackathon_AANPR/ybhack
 
 #=============================================================================
 # Targets provided globally by CMake.
 
 # Special rule for the target edit_cache
 edit_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running interactive CMake command-line interface..."
-	/usr/bin/cmake -i .
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	/usr/bin/ccmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -66,9 +69,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aman/youbot-hackathon/youBot_Hackathon_AANPR/ybhack/CMakeFiles /home/aman/youbot-hackathon/youBot_Hackathon_AANPR/ybhack/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/raman/youBot_Hackathon_AANPR/ybhack/CMakeFiles /home/raman/youBot_Hackathon_AANPR/ybhack/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/aman/youbot-hackathon/youBot_Hackathon_AANPR/ybhack/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/raman/youBot_Hackathon_AANPR/ybhack/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -148,6 +151,19 @@ ROSBUILD_gensrv_lisp/fast:
 .PHONY : ROSBUILD_gensrv_lisp/fast
 
 #=============================================================================
+# Target rules for targets named arm_joint
+
+# Build rule for target.
+arm_joint: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 arm_joint
+.PHONY : arm_joint
+
+# fast build rule for target.
+arm_joint/fast:
+	$(MAKE) -f CMakeFiles/arm_joint.dir/build.make CMakeFiles/arm_joint.dir/build
+.PHONY : arm_joint/fast
+
+#=============================================================================
 # Target rules for targets named clean-test-results
 
 # Build rule for target.
@@ -159,19 +175,6 @@ clean-test-results: cmake_check_build_system
 clean-test-results/fast:
 	$(MAKE) -f CMakeFiles/clean-test-results.dir/build.make CMakeFiles/clean-test-results.dir/build
 .PHONY : clean-test-results/fast
-
-#=============================================================================
-# Target rules for targets named hackathon
-
-# Build rule for target.
-hackathon: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 hackathon
-.PHONY : hackathon
-
-# fast build rule for target.
-hackathon/fast:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/build
-.PHONY : hackathon/fast
 
 #=============================================================================
 # Target rules for targets named rosbuild_precompile
@@ -317,49 +320,184 @@ vision/fast:
 .PHONY : vision/fast
 
 # target to build an object file
-src/main.o:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/src/main.o
-.PHONY : src/main.o
+src/arm_joint_command.o:
+	$(MAKE) -f CMakeFiles/arm_joint.dir/build.make CMakeFiles/arm_joint.dir/src/arm_joint_command.o
+.PHONY : src/arm_joint_command.o
 
 # target to preprocess a source file
-src/main.i:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/src/main.i
-.PHONY : src/main.i
+src/arm_joint_command.i:
+	$(MAKE) -f CMakeFiles/arm_joint.dir/build.make CMakeFiles/arm_joint.dir/src/arm_joint_command.i
+.PHONY : src/arm_joint_command.i
 
 # target to generate assembly for a file
-src/main.s:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/src/main.s
-.PHONY : src/main.s
+src/arm_joint_command.s:
+	$(MAKE) -f CMakeFiles/arm_joint.dir/build.make CMakeFiles/arm_joint.dir/src/arm_joint_command.s
+.PHONY : src/arm_joint_command.s
 
 # target to build an object file
-src/vision.o:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision.o
-.PHONY : src/vision.o
+src/vision/CVWindow.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/CVWindow.o
+.PHONY : src/vision/CVWindow.o
 
 # target to preprocess a source file
-src/vision.i:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision.i
-.PHONY : src/vision.i
+src/vision/CVWindow.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/CVWindow.i
+.PHONY : src/vision/CVWindow.i
 
 # target to generate assembly for a file
-src/vision.s:
-	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision.s
-.PHONY : src/vision.s
+src/vision/CVWindow.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/CVWindow.s
+.PHONY : src/vision/CVWindow.s
 
 # target to build an object file
-src/wslaserfinder.o:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/src/wslaserfinder.o
-.PHONY : src/wslaserfinder.o
+src/vision/ImageGrabber.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/ImageGrabber.o
+.PHONY : src/vision/ImageGrabber.o
 
 # target to preprocess a source file
-src/wslaserfinder.i:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/src/wslaserfinder.i
-.PHONY : src/wslaserfinder.i
+src/vision/ImageGrabber.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/ImageGrabber.i
+.PHONY : src/vision/ImageGrabber.i
 
 # target to generate assembly for a file
-src/wslaserfinder.s:
-	$(MAKE) -f CMakeFiles/hackathon.dir/build.make CMakeFiles/hackathon.dir/src/wslaserfinder.s
-.PHONY : src/wslaserfinder.s
+src/vision/ImageGrabber.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/ImageGrabber.s
+.PHONY : src/vision/ImageGrabber.s
+
+# target to build an object file
+src/vision/Object2D.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/Object2D.o
+.PHONY : src/vision/Object2D.o
+
+# target to preprocess a source file
+src/vision/Object2D.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/Object2D.i
+.PHONY : src/vision/Object2D.i
+
+# target to generate assembly for a file
+src/vision/Object2D.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/Object2D.s
+.PHONY : src/vision/Object2D.s
+
+# target to build an object file
+src/vision/ObjectDetector.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/ObjectDetector.o
+.PHONY : src/vision/ObjectDetector.o
+
+# target to preprocess a source file
+src/vision/ObjectDetector.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/ObjectDetector.i
+.PHONY : src/vision/ObjectDetector.i
+
+# target to generate assembly for a file
+src/vision/ObjectDetector.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/ObjectDetector.s
+.PHONY : src/vision/ObjectDetector.s
+
+# target to build an object file
+src/vision/TOHBlueCubeDetector.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHBlueCubeDetector.o
+.PHONY : src/vision/TOHBlueCubeDetector.o
+
+# target to preprocess a source file
+src/vision/TOHBlueCubeDetector.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHBlueCubeDetector.i
+.PHONY : src/vision/TOHBlueCubeDetector.i
+
+# target to generate assembly for a file
+src/vision/TOHBlueCubeDetector.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHBlueCubeDetector.s
+.PHONY : src/vision/TOHBlueCubeDetector.s
+
+# target to build an object file
+src/vision/TOHCube.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHCube.o
+.PHONY : src/vision/TOHCube.o
+
+# target to preprocess a source file
+src/vision/TOHCube.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHCube.i
+.PHONY : src/vision/TOHCube.i
+
+# target to generate assembly for a file
+src/vision/TOHCube.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHCube.s
+.PHONY : src/vision/TOHCube.s
+
+# target to build an object file
+src/vision/TOHGreenCubeDetector.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHGreenCubeDetector.o
+.PHONY : src/vision/TOHGreenCubeDetector.o
+
+# target to preprocess a source file
+src/vision/TOHGreenCubeDetector.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHGreenCubeDetector.i
+.PHONY : src/vision/TOHGreenCubeDetector.i
+
+# target to generate assembly for a file
+src/vision/TOHGreenCubeDetector.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHGreenCubeDetector.s
+.PHONY : src/vision/TOHGreenCubeDetector.s
+
+# target to build an object file
+src/vision/TOHObjectDetector.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHObjectDetector.o
+.PHONY : src/vision/TOHObjectDetector.o
+
+# target to preprocess a source file
+src/vision/TOHObjectDetector.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHObjectDetector.i
+.PHONY : src/vision/TOHObjectDetector.i
+
+# target to generate assembly for a file
+src/vision/TOHObjectDetector.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHObjectDetector.s
+.PHONY : src/vision/TOHObjectDetector.s
+
+# target to build an object file
+src/vision/TOHRedCubeDetector.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHRedCubeDetector.o
+.PHONY : src/vision/TOHRedCubeDetector.o
+
+# target to preprocess a source file
+src/vision/TOHRedCubeDetector.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHRedCubeDetector.i
+.PHONY : src/vision/TOHRedCubeDetector.i
+
+# target to generate assembly for a file
+src/vision/TOHRedCubeDetector.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/TOHRedCubeDetector.s
+.PHONY : src/vision/TOHRedCubeDetector.s
+
+# target to build an object file
+src/vision/VisionController.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/VisionController.o
+.PHONY : src/vision/VisionController.o
+
+# target to preprocess a source file
+src/vision/VisionController.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/VisionController.i
+.PHONY : src/vision/VisionController.i
+
+# target to generate assembly for a file
+src/vision/VisionController.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/VisionController.s
+.PHONY : src/vision/VisionController.s
+
+# target to build an object file
+src/vision/vision.o:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/vision.o
+.PHONY : src/vision/vision.o
+
+# target to preprocess a source file
+src/vision/vision.i:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/vision.i
+.PHONY : src/vision/vision.i
+
+# target to generate assembly for a file
+src/vision/vision.s:
+	$(MAKE) -f CMakeFiles/vision.dir/build.make CMakeFiles/vision.dir/src/vision/vision.s
+.PHONY : src/vision/vision.s
 
 # Help Target
 help:
@@ -371,9 +509,9 @@ help:
 	@echo "... ROSBUILD_genmsg_lisp"
 	@echo "... ROSBUILD_gensrv_cpp"
 	@echo "... ROSBUILD_gensrv_lisp"
+	@echo "... arm_joint"
 	@echo "... clean-test-results"
 	@echo "... edit_cache"
-	@echo "... hackathon"
 	@echo "... rebuild_cache"
 	@echo "... rosbuild_precompile"
 	@echo "... rosbuild_premsgsrvgen"
@@ -386,15 +524,42 @@ help:
 	@echo "... test-results-run"
 	@echo "... tests"
 	@echo "... vision"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/vision.o"
-	@echo "... src/vision.i"
-	@echo "... src/vision.s"
-	@echo "... src/wslaserfinder.o"
-	@echo "... src/wslaserfinder.i"
-	@echo "... src/wslaserfinder.s"
+	@echo "... src/arm_joint_command.o"
+	@echo "... src/arm_joint_command.i"
+	@echo "... src/arm_joint_command.s"
+	@echo "... src/vision/CVWindow.o"
+	@echo "... src/vision/CVWindow.i"
+	@echo "... src/vision/CVWindow.s"
+	@echo "... src/vision/ImageGrabber.o"
+	@echo "... src/vision/ImageGrabber.i"
+	@echo "... src/vision/ImageGrabber.s"
+	@echo "... src/vision/Object2D.o"
+	@echo "... src/vision/Object2D.i"
+	@echo "... src/vision/Object2D.s"
+	@echo "... src/vision/ObjectDetector.o"
+	@echo "... src/vision/ObjectDetector.i"
+	@echo "... src/vision/ObjectDetector.s"
+	@echo "... src/vision/TOHBlueCubeDetector.o"
+	@echo "... src/vision/TOHBlueCubeDetector.i"
+	@echo "... src/vision/TOHBlueCubeDetector.s"
+	@echo "... src/vision/TOHCube.o"
+	@echo "... src/vision/TOHCube.i"
+	@echo "... src/vision/TOHCube.s"
+	@echo "... src/vision/TOHGreenCubeDetector.o"
+	@echo "... src/vision/TOHGreenCubeDetector.i"
+	@echo "... src/vision/TOHGreenCubeDetector.s"
+	@echo "... src/vision/TOHObjectDetector.o"
+	@echo "... src/vision/TOHObjectDetector.i"
+	@echo "... src/vision/TOHObjectDetector.s"
+	@echo "... src/vision/TOHRedCubeDetector.o"
+	@echo "... src/vision/TOHRedCubeDetector.i"
+	@echo "... src/vision/TOHRedCubeDetector.s"
+	@echo "... src/vision/VisionController.o"
+	@echo "... src/vision/VisionController.i"
+	@echo "... src/vision/VisionController.s"
+	@echo "... src/vision/vision.o"
+	@echo "... src/vision/vision.i"
+	@echo "... src/vision/vision.s"
 .PHONY : help
 
 
